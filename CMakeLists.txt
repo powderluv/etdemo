@@ -38,7 +38,7 @@ ExternalProject_Add(tf
     CONFIGURE_COMMAND ./tensorflow/lite/tools/make/download_dependencies.sh
     BUILD_IN_SOURCE 1
     BUILD_COMMAND make -j4 TARGET=generic-aarch64 TARGET_ARCH=armv8-a -C ${CMAKE_BINARY_DIR}/tensorflow/src/tf -f tensorflow/lite/tools/make/Makefile CC=aarch64-unknown-linux-gnu-g++ CXX=aarch64-unknown-linux-gnu-g++ AR=aarch64-unknown-linux-gnu-ar CFLAGS="-fpermissive" lib
-    BUILD_BYPRODUCTS libtensorflow-lite.a
+    BUILD_BYPRODUCTS libtensorflow-lite.a ${CMAKE_BINARY_DIR}/tensorflow/src/tf/tensorflow/lite/tools/make/downloads/fft2d/fftsg.c
     INSTALL_COMMAND cp -f ${CMAKE_BINARY_DIR}/tensorflow/src/tf/tensorflow/lite/tools/make/gen/generic-aarch64_armv8-a/lib/libtensorflow-lite.a ${CMAKE_BINARY_DIR}/
 )
 
